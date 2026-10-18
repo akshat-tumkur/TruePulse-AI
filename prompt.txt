@@ -1,0 +1,94 @@
+I want to build a deepfake detection system based on remote photoplethysmography (rPPG), using the attached Markdown document as the project specification.
+
+Act as a senior machine learning engineer and mentor me through implementing this project step by step.
+
+## Main objective
+
+Build a working Python pipeline that:
+1. Reads a face video and detects the face.
+2. Extracts skin regions of interest (forehead and cheeks).
+3. Extracts RGB signals from those regions over time.
+4. Processes the signals to estimate heart rate.
+5. Measures temporal consistency between facial regions.
+6. Builds a real-vs-fake classifier using these features.
+7. Evaluates the detector on people and videos excluded from training.
+
+## How I want you to work
+
+**Work incrementally. Do not implement the entire project in one response.**
+
+First, inspect the attached Markdown specification and turn it into a practical implementation plan.
+
+Then follow these rules:
+
+- Implement only ONE milestone at a time.
+- Before coding, explain the milestone, its purpose, inputs, outputs, and how we will verify it.
+- Give me the exact project file paths and complete code for every file we need to create or modify.
+- Use Python and prefer OpenCV, MediaPipe, NumPy, SciPy, Matplotlib, and scikit-learn where appropriate.
+- Provide exact installation commands and a reproducible environment setup.
+- Explain how to run each step, what output to expect, and how to troubleshoot common errors.
+- Include basic validation checks and useful error messages.
+- Do not use pseudocode or leave essential functions as TODOs.
+- Do not silently skip failed operations or fabricate sample results.
+- Keep the implementation simple initially. Add complexity only after the simpler version works.
+- Preserve previously working code when adding new features.
+- If you need to change an existing file, show the complete updated file and explain why.
+- Do not assume that a package API, model download URL, dataset link, or function signature is valid without checking it when possible.
+- If something depends on my operating system, hardware, Python version, or available files, ask me for the relevant details.
+
+## Required milestones
+
+Milestone 1: Inspect the specification, define the architecture, identify assumptions, and create the project structure.
+
+Milestone 2: Set up the Python environment, install dependencies, and verify imports and camera/video support.
+
+Milestone 3: Load a sample video, inspect its frame rate, dimensions, duration, and frame count, and display sample frames.
+
+Milestone 4: Detect the face and visualize facial landmarks and the proposed forehead and cheek regions. Verify that the regions remain usable across frames.
+
+Milestone 5: Extract per-frame RGB averages from each region and save the resulting time series to CSV. Plot the raw signals.
+
+Milestone 6: Implement detrending, band-pass filtering, and FFT-based heart-rate estimation. Validate the sampling rate, frequency bins, and estimated BPM. Handle short clips and invalid signals safely.
+
+Milestone 7: Compare the estimated heart rate against a reference pulse signal, when available. Calculate mean absolute error and document limitations.
+
+Milestone 8: Extract multi-region temporal features, including appropriate measures of signal agreement or coherence. Verify that the features are numerically valid.
+
+Milestone 9: Obtain and inspect a suitable labelled real/fake dataset. Document its labels, metadata, licensing or access restrictions, and preprocessing requirements before training.
+
+Milestone 10: Build a baseline classifier using scikit-learn. Use subject-aware and source-video-aware data splits to prevent leakage between training and testing.
+
+Milestone 11: Evaluate the classifier using accuracy, precision, recall, F1 score, ROC-AUC where appropriate, a confusion matrix, and relevant error analysis.
+
+Milestone 12: Build a command-line inference pipeline that accepts a video and returns a prediction, confidence or decision score where supported, and a clear warning when video quality makes the result unreliable.
+
+Milestone 13: Document how to reproduce the experiments, run the project, interpret the results, and understand its limitations.
+
+## Scientific and engineering requirements
+
+- Start with a simple green-channel baseline, then consider CHROM or POS after the baseline works.
+- Do not treat estimated heart rate alone as proof that a video is real or fake.
+- Do not assume real facial regions must always agree or fake regions must always disagree. Test whether the features actually distinguish the available data.
+- Do not hard-code the expected heart rate or classifier outcome.
+- Use realistic validation and report actual measured results only.
+- Split data by subject and source video before training. Keep derived clips and real/fake pairs from the same source on the same side of the split.
+- Avoid claiming that performance generalizes to unseen datasets unless it has been tested on them.
+- Account for lighting, motion, compression, skin tone, frame rate, clip duration, and video quality.
+- Treat this as an experimental research prototype, not a production-grade forensic authentication system.
+
+## Interaction protocol
+
+Start with Milestone 1 only.
+
+Give me:
+1. Your interpretation of the specification.
+2. The proposed architecture and data flow.
+3. The initial project directory structure.
+4. The key technical risks and assumptions.
+5. The minimum information you need from me before implementation.
+
+Do not proceed to Milestone 2 until I confirm that Milestone 1 is complete.
+
+After each milestone, provide a checklist of what should work, the exact commands to test it, and the evidence I should share with you if something fails. Wait for my confirmation before proceeding.
+
+The goal is a reproducible, tested learning project, not merely a large amount of generated code.
