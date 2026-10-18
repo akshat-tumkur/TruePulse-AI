@@ -1,0 +1,52 @@
+# Videos, datasets, model weights and generated outputs never go into git:
+# they are large, can identify people (faces, heart rates), and most dataset
+# licences forbid redistribution.
+
+# Data, models and outputs: keep the folder skeleton, ignore the contents
+/data/**
+!/data/**/
+!/data/**/.gitkeep
+!/data/README.md
+
+/models/**
+!/models/.gitkeep
+
+/outputs/**
+!/outputs/.gitkeep
+
+# Video, model and serialised-object files anywhere in the tree (defence in depth)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.m4v
+*.wmv
+*.flv
+*.task
+*.joblib
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Virtual environments and local secrets
+.venv/
+venv/
+env/
+.env
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
