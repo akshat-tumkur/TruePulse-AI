@@ -15,7 +15,7 @@ behave the way a real person's do.
 | Milestone | Status |
 |---|---|
 | 1. Specification, architecture, assumptions, project structure | ✅ Done |
-| 2. Python environment, dependencies, camera and video support | 🧪 Delivered, awaiting your test run |
+| 2. Python environment, dependencies, camera and video support | ✅ Done (9/9 checks passed on Windows 11, Python 3.12.8, with a UBFC-rPPG video) |
 | 3. Load and inspect a video | ⏳ Not started |
 | 4. Face landmarks and skin regions | ⏳ Not started |
 | 5. Per-frame RGB signals to CSV | ⏳ Not started |
