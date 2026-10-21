@@ -16,7 +16,7 @@ behave the way a real person's do.
 |---|---|
 | 1. Specification, architecture, assumptions, project structure | ✅ Done |
 | 2. Python environment, dependencies, camera and video support | ✅ Done (9/9 checks passed on Windows 11, Python 3.12.8, with a UBFC-rPPG video) |
-| 3. Load and inspect a video | ⏳ Not started |
+| 3. Load and inspect a video | 🧪 Delivered, awaiting your test run ([guide](docs/03_video_inspection.md)) |
 | 4. Face landmarks and skin regions | ⏳ Not started |
 | 5. Per-frame RGB signals to CSV | ⏳ Not started |
 | 6. Filtering and FFT heart rate | ⏳ Not started |
