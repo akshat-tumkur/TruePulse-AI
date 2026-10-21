@@ -14,8 +14,8 @@ behave the way a real person's do.
 
 | Milestone | Status |
 |---|---|
-| 1. Specification, architecture, assumptions, project structure | ✅ Delivered, awaiting your review |
-| 2. Python environment, dependencies, camera and video support | ⏳ Not started |
+| 1. Specification, architecture, assumptions, project structure | ✅ Done |
+| 2. Python environment, dependencies, camera and video support | 🧪 Delivered, awaiting your test run |
 | 3. Load and inspect a video | ⏳ Not started |
 | 4. Face landmarks and skin regions | ⏳ Not started |
 | 5. Per-frame RGB signals to CSV | ⏳ Not started |
@@ -47,6 +47,9 @@ assumptions, verified facts and the questions to answer before Milestone 2.
 ```text
 TruePulse-AI/
 ├── README.md              this file
+├── requirements.in        top-level dependencies (requirements.txt is generated from it)
+├── requirements.txt       exact, cross-platform pinned versions: pip install -r requirements.txt
+├── pyproject.toml         makes src/truepulse installable
 ├── prompt.txt             the project brief
 ├── Deepfake detection from your pulse_ how it works and how to build it.md
 │                          the specification
@@ -70,21 +73,28 @@ TruePulse-AI/
   registration, are licensed for non-commercial research only and must not be
   redistributed. Each dataset's terms are documented before use (Milestone 9).
 
-## Milestone 1 check
+## Quick start
 
-From the repository root:
+Full instructions and troubleshooting: [docs/02_environment_setup.md](docs/02_environment_setup.md).
 
-```bash
-# macOS / Linux
-python3 scripts/m01_system_report.py
-
-# Windows (PowerShell or Command Prompt)
-py scripts\m01_system_report.py
+```powershell
+# Windows (PowerShell), from the repository root
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python scripts\m02_check_environment.py
 ```
 
-The script uses only the Python standard library. It installs nothing, writes no
-files and makes no network requests. Paste its full output into the chat; it
-decides the exact setup steps for Milestone 2.
+```bash
+# macOS (Apple Silicon) / Linux, from the repository root
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python scripts/m02_check_environment.py
+```
+
+`scripts/m01_system_report.py` (standard library only) reports your OS, Python and
+disk space if anything goes wrong.
 
 ## Credits
 

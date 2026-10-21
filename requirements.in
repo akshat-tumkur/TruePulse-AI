@@ -1,0 +1,20 @@
+# Top-level dependencies. requirements.txt is generated from this file:
+#   uv pip compile requirements.in --universal --python-version 3.11 -o requirements.txt
+# Install with:  pip install -r requirements.txt
+
+# MediaPipe pulls in opencv-contrib-python. Never add opencv-python (or a
+# -headless variant) as well: they all provide the same cv2 module and break it.
+mediapipe==1.1.1
+opencv-contrib-python==5.0.0.93
+
+numpy==2.5.4 ; python_version >= "3.12"
+numpy==2.4.6 ; python_version < "3.12"
+scipy==1.18.1 ; python_version >= "3.12"
+scipy==1.17.1 ; python_version < "3.12"
+scikit-learn==1.9.1
+pandas==3.0.6
+matplotlib==3.11.2
+pytest==9.1.1
+
+# This project's own code (src/truepulse), installed in editable mode
+-e .
